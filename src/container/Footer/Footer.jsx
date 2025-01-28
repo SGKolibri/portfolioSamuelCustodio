@@ -37,44 +37,20 @@ const Footer = () => {
 
     return (
         <>
-            <h2 className="head-text">Converse comigo</h2>
+            <div className='flex flex-col items-center'>
+                <h2 className="head-text text-white">Converse comigo</h2>
+                <div className="w-3/5 flex justify-center items-center m-4 mt-16 mx-8 mb-8">
+                    <div className="min-w-[290px] items-center flex flex-row justify-center m-4 my-4 py-4 rounded-lg cursor-pointer bg-[#ffffff] transition-all duration-300 ease-in-out sm:w-full">
+                        <img src={images.email} className="w-10 h-10 m-0 mr-2.5" alt="email" />
+                        <a href="mailto:samuelcustodioes@gmail.com" className="font-semibold no-underline mr-3">samuelcustodioes@gmail.com</a>
+                    </div>
+                    <div className="min-w-[290px] items-center flex flex-row justify-center m-4 my-4 py-4 rounded-lg cursor-pointer bg-[#ffffff] transition-all duration-300 ease-in-out sm:w-full">
+                        <img src={images.mobile} className="w-10 h-10 m-0 mr-2.5" alt="phone" />
+                        <a href="tel:+55 (62) 995047887" className="font-semibold no-underline">+55 (62) 995047887</a>
+                    </div>
+                </div>
 
-            <div className="app__footer-cards">
-                <div className="app__footer-card ">
-                    <img src={images.email} alt="email" />
-                    <a href="mailto:samuelcustodioes@gmail.com" className="p-text">samuelcustodioes@gmail.com</a>
-                </div>
-                <div className="app__footer-card">
-                    <img src={images.mobile} alt="phone" />
-                    <a href="tel:+55 (62) 995047887" className="p-text">+55 (62) 995047887</a>
-                </div>
-            </div>
-            {!isFormSubmitted ? (
-                <div className="app__footer-form app__flex">
-                    <div className="app__flex">
-                        <input className="p-text" type="text" placeholder="Seu nome" name="username" value={username} onChange={handleChangeInput} />
-                    </div>
-                    <div className="app__flex">
-                        <input className="p-text" type="email" placeholder="Seu email" name="email" value={email} onChange={handleChangeInput} />
-                    </div>
-                    <div>
-                        <textarea
-                            className="p-text"
-                            placeholder="Sua mensagem"
-                            value={message}
-                            name="message"
-                            onChange={handleChangeInput}
-                        />
-                    </div>
-                    <button type="button" className="p-text" onClick={handleSubmit}>{!loading ? 'Enviar mensagem' : 'Enviando...'}</button>
-                </div>
-            ) : (
-                <div>
-                    <h3 className="head-text">
-                        Obrigado por entrar em contato!
-                    </h3>
-                </div>
-            )}
+            </div >
         </>
     );
 };
