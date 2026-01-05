@@ -1,2 +1,0 @@
-# samuelCustodio
-Meu portfolio pessoal
