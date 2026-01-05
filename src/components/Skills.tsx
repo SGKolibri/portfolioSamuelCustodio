@@ -7,6 +7,7 @@ import {
   Briefcase,
 } from "lucide-react";
 import SkillCard from "./SkillCard";
+import CertificationCard from "./CertificationCard";
 
 function Skills() {
   const skills = [
@@ -45,6 +46,15 @@ function Skills() {
     },
   ];
 
+  const certifications = [
+    {
+      title: "AWS Certified Cloud Practitioner",
+      issuer: "Amazon Web Services",
+      date: "Dezembro 2025",
+      tags: ["Cloud Computing", "AWS Services", "Security"],
+    },
+  ];
+
   return (
     <section id="habilidades" className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,14 +67,15 @@ function Skills() {
           ))}
         </div>
 
-        <div className="mt-12 bg-blue-600 text-white p-8 rounded-xl text-center">
-          <Award size={48} className="mx-auto mb-4" />
-          <h3 className="text-2xl font-bold mb-2">
-            AWS Certified Cloud Practitioner
+        <div className="mt-16">
+          <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            Certificações
           </h3>
-          <p className="text-blue-100">
-            Amazon Web Services - Dezembro 2025
-          </p>
+          <div className="flex justify-center">
+            {certifications.map((cert, index) => (
+              <CertificationCard key={index} {...cert} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
