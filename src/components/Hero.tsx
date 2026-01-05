@@ -1,4 +1,5 @@
 import { Github } from "lucide-react";
+import profileImage from "../assets/me.png";
 
 function Hero() {
   return (
@@ -8,6 +9,13 @@ function Hero() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
+          <div className="mb-8 flex justify-center">
+            <img
+              src={profileImage}
+              alt="Samuel Custódio"
+              className="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover shadow-2xl border-4 border-white"
+            />
+          </div>
           <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
             Samuel Custódio
           </h1>
