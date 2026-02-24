@@ -1,4 +1,5 @@
 import ExperienceCard from "./ExperienceCard";
+import AnimatedSection from "./ui/AnimatedSection";
 
 function Experience() {
   const experiences = [
@@ -41,14 +42,25 @@ function Experience() {
   ];
 
   return (
-    <section id="experiencia" className="py-20 bg-gray-50">
+    <section
+      id="experiencia"
+      className="py-20"
+      style={{ backgroundColor: "var(--bg-section-alt)" }}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
-          Experiência Profissional
-        </h2>
+        <AnimatedSection>
+          <h2
+            className="text-4xl font-bold mb-12 text-center"
+            style={{ color: "var(--text-primary)" }}
+          >
+            Experiência Profissional
+          </h2>
+        </AnimatedSection>
         <div className="space-y-8">
           {experiences.map((exp, index) => (
-            <ExperienceCard key={index} {...exp} />
+            <AnimatedSection key={index} delay={index * 0.1}>
+              <ExperienceCard {...exp} />
+            </AnimatedSection>
           ))}
         </div>
       </div>

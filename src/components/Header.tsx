@@ -1,40 +1,69 @@
+import { motion } from "framer-motion";
+import ThemeSwitcher from "./ui/ThemeSwitcher";
+import MobileMenu from "./ui/MobileMenu";
+
+const navLinks = [
+  { href: "#sobre", label: "Sobre" },
+  { href: "#experiencia", label: "Experiência" },
+  { href: "#habilidades", label: "Habilidades" },
+  { href: "#contato", label: "Contato" },
+];
+
 function Header() {
   return (
-    <header className="fixed top-0 w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
+    <motion.header
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="fixed top-0 w-full backdrop-blur-md z-50"
+      style={{
+        backgroundColor: "var(--bg-overlay)",
+        borderBottom: "1px solid var(--border-primary)",
+      }}
+    >
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex justify-between items-center">
-          <a href="#home" className="text-xl font-bold text-gray-900">
+          <motion.a
+            href="#home"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="text-xl font-bold"
+            style={{ color: "var(--text-primary)" }}
+          >
             SC
-          </a>
-          <div className="hidden md:flex space-x-8">
-            <a
-              href="#sobre"
-              className="text-gray-600 hover:text-blue-600 transition-colors"
-            >
-              Sobre
-            </a>
-            <a
-              href="#experiencia"
-              className="text-gray-600 hover:text-blue-600 transition-colors"
-            >
-              Experiência
-            </a>
-            <a
-              href="#habilidades"
-              className="text-gray-600 hover:text-blue-600 transition-colors"
-            >
-              Habilidades
-            </a>
-            <a
-              href="#contato"
-              className="text-gray-600 hover:text-blue-600 transition-colors"
-            >
-              Contato
-            </a>
+          </motion.a>
+
+          <div className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="relative font-medium transition-colors duration-200 group"
+                style={{ color: "var(--text-secondary)" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = "var(--accent-primary)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = "var(--text-secondary)";
+                }}
+              >
+                {link.label}
+                <span
+                  className="absolute -bottom-1 left-0 w-0 h-0.5 rounded-full transition-all duration-300 group-hover:w-full"
+                  style={{ backgroundColor: "var(--accent-primary)" }}
+                />
+              </a>
+            ))}
+            <ThemeSwitcher />
+          </div>
+
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeSwitcher />
+            <MobileMenu />
           </div>
         </div>
       </nav>
-    </header>
+    </motion.header>
   );
 }
 

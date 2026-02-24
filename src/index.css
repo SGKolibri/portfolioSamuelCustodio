@@ -1,9 +1,29 @@
+@import './styles/themes.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  /* body/html must be transparent so the fixed Dither canvas shows through */
+  html, body {
+    background-color: transparent;
+    color: var(--text-primary);
+  }
+
   body {
     font-family: 'Noto Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }

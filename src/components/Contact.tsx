@@ -1,4 +1,6 @@
 import { Mail, Phone, Linkedin, Github } from "lucide-react";
+import { motion } from "framer-motion";
+import AnimatedSection from "./ui/AnimatedSection";
 
 function Contact() {
   const contactMethods = [
@@ -31,44 +33,86 @@ function Contact() {
   ];
 
   return (
-    <section id="contato" className="py-20 bg-gray-50">
+    <section
+      id="contato"
+      className="py-20"
+      style={{ backgroundColor: "var(--bg-section-alt)" }}
+    >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
-          Entre em Contato
-        </h2>
-        <div className="bg-white p-8 rounded-xl shadow-lg">
-          <p className="text-center text-gray-600 mb-8">
-            Estou sempre aberto a discutir novos projetos, oportunidades e
-            colaborações.
-          </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            {contactMethods.map((method, index) => {
-              const Icon = method.icon;
-              return (
-                <a
-                  key={index}
-                  href={method.href}
-                  {...(method.external && {
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                  })}
-                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-blue-50 transition-colors group"
-                >
-                  <div className="bg-blue-100 p-3 rounded-lg group-hover:bg-blue-600 transition-colors">
-                    <Icon
-                      className="text-blue-600 group-hover:text-white"
-                      size={24}
-                    />
-                  </div>
-                  <div>
-                    <p className="font-medium text-gray-900">{method.label}</p>
-                    <p className="text-gray-600 text-sm">{method.value}</p>
-                  </div>
-                </a>
-              );
-            })}
+        <AnimatedSection>
+          <h2
+            className="text-4xl font-bold mb-12 text-center"
+            style={{ color: "var(--text-primary)" }}
+          >
+            Entre em Contato
+          </h2>
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.1}>
+          <div
+            className="p-8 rounded-xl"
+            style={{
+              backgroundColor: "var(--bg-card)",
+              boxShadow: "var(--shadow-lg)",
+              border: "1px solid var(--border-primary)",
+            }}
+          >
+            <p
+              className="text-center mb-8"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              Estou sempre aberto a discutir novos projetos, oportunidades e
+              colaborações.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              {contactMethods.map((method, index) => {
+                const Icon = method.icon;
+                return (
+                  <motion.a
+                    key={index}
+                    whileHover={{ x: 4 }}
+                    href={method.href}
+                    {...(method.external && {
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                    })}
+                    className="flex items-center gap-4 p-4 rounded-lg transition-colors group"
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "var(--bg-secondary)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "transparent";
+                    }}
+                  >
+                    <div
+                      className="p-3 rounded-lg transition-colors"
+                      style={{ backgroundColor: "var(--tag-bg)" }}
+                    >
+                      <Icon
+                        style={{ color: "var(--accent-primary)" }}
+                        size={24}
+                      />
+                    </div>
+                    <div>
+                      <p
+                        className="font-medium"
+                        style={{ color: "var(--text-primary)" }}
+                      >
+                        {method.label}
+                      </p>
+                      <p
+                        className="text-sm"
+                        style={{ color: "var(--text-secondary)" }}
+                      >
+                        {method.value}
+                      </p>
+                    </div>
+                  </motion.a>
+                );
+              })}
+            </div>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

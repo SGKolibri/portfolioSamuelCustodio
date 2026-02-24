@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import SkillCard from "./SkillCard";
 import CertificationCard from "./CertificationCard";
+import AnimatedSection from "./ui/AnimatedSection";
 
 function Skills() {
   const skills = [
@@ -56,27 +57,44 @@ function Skills() {
   ];
 
   return (
-    <section id="habilidades" className="py-20 bg-white">
+    <section
+      id="habilidades"
+      className="py-20"
+      style={{ backgroundColor: "var(--bg-section)" }}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
-          Habilidades Técnicas
-        </h2>
+        <AnimatedSection>
+          <h2
+            className="text-4xl font-bold mb-12 text-center"
+            style={{ color: "var(--text-primary)" }}
+          >
+            Habilidades Técnicas
+          </h2>
+        </AnimatedSection>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((skill, index) => (
-            <SkillCard key={index} {...skill} />
+            <AnimatedSection key={index} delay={index * 0.08} direction="scale">
+              <SkillCard {...skill} />
+            </AnimatedSection>
           ))}
         </div>
 
-        <div className="mt-16">
-          <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Certificações
-          </h3>
-          <div className="flex justify-center">
-            {certifications.map((cert, index) => (
-              <CertificationCard key={index} {...cert} />
-            ))}
+        <AnimatedSection delay={0.2}>
+          <div className="mt-16">
+            <h3
+              className="text-3xl font-bold mb-8 text-center"
+              style={{ color: "var(--text-primary)" }}
+            >
+              Certificações
+            </h3>
+            <div className="flex justify-center">
+              {certifications.map((cert, index) => (
+                <CertificationCard key={index} {...cert} />
+              ))}
+            </div>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

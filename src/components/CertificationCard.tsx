@@ -1,4 +1,5 @@
 import { Award } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface CertificationCardProps {
   title: string;
@@ -9,30 +10,54 @@ interface CertificationCardProps {
 
 function CertificationCard({ title, issuer, date, tags }: CertificationCardProps) {
   return (
-    <div className="bg-white border-2 border-blue-600 p-8 rounded-2xl hover:border-blue-700 transition-all duration-300 flex flex-col items-center text-center">
-      <div className="bg-blue-600 p-4 rounded-full mb-4">
-        <Award size={40} className="text-white" />
+    <motion.div
+      whileHover={{ y: -6, transition: { duration: 0.2 } }}
+      className="p-8 rounded-2xl border-2 flex flex-col items-center text-center transition-all max-w-sm"
+      style={{
+        backgroundColor: "var(--bg-card)",
+        borderColor: "var(--accent-primary)",
+        boxShadow: "var(--shadow-md)",
+      }}
+    >
+      <div
+        className="p-4 rounded-full mb-4"
+        style={{ backgroundColor: "var(--accent-primary)" }}
+      >
+        <Award size={40} style={{ color: "var(--text-inverse)" }} />
       </div>
-      <h4 className="text-xl font-bold text-gray-900 mb-2">
+      <h4
+        className="text-xl font-bold mb-2"
+        style={{ color: "var(--text-primary)" }}
+      >
         {title}
       </h4>
-      <p className="text-blue-600 font-semibold mb-2">
+      <p
+        className="font-semibold mb-2"
+        style={{ color: "var(--accent-primary)" }}
+      >
         {issuer}
       </p>
-      <p className="text-gray-600 text-sm mb-4">
+      <p
+        className="text-sm mb-4"
+        style={{ color: "var(--text-tertiary)" }}
+      >
         {date}
       </p>
       <div className="flex flex-wrap gap-2 justify-center">
         {tags.map((tag, index) => (
           <span
             key={index}
-            className="bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full font-medium"
+            className="text-xs px-3 py-1 rounded-full font-medium"
+            style={{
+              backgroundColor: "var(--tag-bg)",
+              color: "var(--tag-text)",
+            }}
           >
             {tag}
           </span>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
