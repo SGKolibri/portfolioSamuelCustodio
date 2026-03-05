@@ -1,13 +1,12 @@
 import { ThemeProvider, useTheme, type Theme } from "./context/ThemeContext";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Experience from "./components/Experience";
-import Skills from "./components/Skills";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import Header from "./components/layout/Header";
+import Hero from "./components/sections/Hero";
+import About from "./components/sections/About";
+import Experience from "./components/sections/Experience";
+import Skills from "./components/sections/Skills";
+import Contact from "./components/sections/Contact";
+import Footer from "./components/sections/Footer";
 import Dither from "./components/reactbits/Dither";
-import ColorBends from "./components/reactbits/ColorBends";
 
 // RGB wave colors per theme (values in 0–1 range)
 const THEME_COLORS: Record<Theme, [number, number, number]> = {

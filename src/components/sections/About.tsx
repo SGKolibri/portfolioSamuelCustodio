@@ -1,6 +1,6 @@
 import { MapPin, Award } from "lucide-react";
-import AnimatedSection from "./ui/AnimatedSection";
-import ScrollReveal from "./reactbits/ScrollReveal";
+import AnimatedSection from "../ui/AnimatedSection";
+import ScrollReveal from "../reactbits/ScrollReveal";
 
 function About() {
   return (

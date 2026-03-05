@@ -1,6 +1,6 @@
 import { Mail, Phone, Linkedin, Github } from "lucide-react";
 import { motion } from "framer-motion";
-import AnimatedSection from "./ui/AnimatedSection";
+import AnimatedSection from "../ui/AnimatedSection";
 
 function Contact() {
   const contactMethods = [

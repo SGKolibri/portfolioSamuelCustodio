@@ -1,17 +1,12 @@
 import { Github, Mountain } from "lucide-react";
 import { motion } from "framer-motion";
-import profileImage from "../assets/me.jpg";
-import DecryptedText from "./reactbits/DecryptedText";
-import GradientText from "./reactbits/GradientText";
-import ShinyText from "./reactbits/ShinyText";
-import { useTheme } from "../context/ThemeContext";
+import profileImage from "../../assets/me.jpg";
+import DecryptedText from "../reactbits/DecryptedText";
+import GradientText from "../reactbits/GradientText";
+import ShinyText from "../reactbits/ShinyText";
+import { useTheme } from "../../context/ThemeContext";
 import { useMemo } from "react";
-
-const gradientColors: Record<string, string[]> = {
-  light: ["#3b82f6", "#6366f1", "#8b5cf6"],
-  dark: ["#60a5fa", "#818cf8", "#c084fc"],
-  catppuccin: ["#89b4fa", "#cba6f7", "#f5c2e7"],
-};
+import { gradientColors } from "../ui/GradientColors";
 
 function Hero() {
   const { theme } = useTheme();

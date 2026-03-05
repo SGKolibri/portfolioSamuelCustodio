@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
-import ThemeSwitcher from "./ui/ThemeSwitcher";
-import MobileMenu from "./ui/MobileMenu";
+import ThemeSwitcher from "../ui/ThemeSwitcher";
+import MobileMenu from "../ui/MobileMenu";
+import GradientText from "../reactbits/GradientText";
+import { useMemo } from "react";
+import { gradientColors } from "../ui/GradientColors";
+import { useTheme } from "../../context/ThemeContext";
 
 const navLinks = [
   { href: "#sobre", label: "Sobre" },
@@ -10,6 +14,12 @@ const navLinks = [
 ];
 
 function Header() {
+  const { theme } = useTheme();
+  const gradColors = useMemo(
+    () => gradientColors[theme] || gradientColors.dark,
+    [theme],
+  );
+
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
@@ -21,16 +31,22 @@ function Header() {
         borderBottom: "1px solid var(--border-primary)",
       }}
     >
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <nav className="max-w-6xl mx-auto px-6 lg:px-8 py-4">
         <div className="flex justify-between items-center">
           <motion.a
             href="#home"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="text-xl font-bold"
+            className="text-3xl font-bold"
             style={{ color: "var(--text-primary)" }}
           >
-            SC
+            <GradientText
+              colors={gradColors}
+              animationSpeed={6}
+              className="tracking-wider font-semibold cursor-default px-2.5"
+            >
+              SC
+            </GradientText>
           </motion.a>
 
           <div className="hidden md:flex items-center space-x-8">

@@ -6,9 +6,9 @@ import {
   Terminal,
   Briefcase,
 } from "lucide-react";
-import SkillCard from "./SkillCard";
-import CertificationCard from "./CertificationCard";
-import AnimatedSection from "./ui/AnimatedSection";
+import SkillCard from "../ui/SkillCard";
+import CertificationCard from "../ui/CertificationCard";
+import AnimatedSection from "../ui/AnimatedSection";
 
 function Skills() {
   const skills = [
