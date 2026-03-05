@@ -1,4 +1,4 @@
-import { Github } from "lucide-react";
+import { Github, Mountain } from "lucide-react";
 import { motion } from "framer-motion";
 import profileImage from "../assets/me.jpg";
 import DecryptedText from "./reactbits/DecryptedText";
@@ -79,7 +79,7 @@ function Hero() {
             <GradientText
               colors={gradColors}
               animationSpeed={6}
-              className="text-2xl md:text-3xl font-semibold"
+              className="text-2xl md:text-3xl font-semibold cursor-default"
             >
               Desenvolvedor Web Full Stack
             </GradientText>
@@ -93,33 +93,14 @@ function Hero() {
             className="text-lg max-w-2xl mx-auto mb-12 leading-relaxed"
             style={{ color: "var(--text-secondary)" }}
           >
-            Especialista em criar soluções escaláveis com{" "}
+            Engenheiro de software com base sólida em {" "}
             <ShinyText
-              text="Node.js"
+              text="Desenvolvimento Web Full Stack"
               speed={3}
               color="var(--text-primary)"
               shineColor="var(--accent-primary)"
               className="font-semibold"
             />
-            ,{" "}
-            <ShinyText
-              text="React"
-              speed={3}
-              delay={0.5}
-              color="var(--text-primary)"
-              shineColor="var(--accent-secondary)"
-              className="font-semibold"
-            />{" "}
-            e{" "}
-            <ShinyText
-              text="PostgreSQL"
-              speed={3}
-              delay={1}
-              color="var(--text-primary)"
-              shineColor="var(--accent-primary)"
-              className="font-semibold"
-            />
-            .{" "}
             <ShinyText
               text="AWS Certified Cloud Practitioner"
               speed={4}
@@ -181,6 +162,30 @@ function Hero() {
             >
               <Github size={20} />
               GitHub
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              href="https://codeberg.org/SGKolibri"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3 rounded-xl font-medium flex items-center gap-2 border-2 transition-colors backdrop-blur-sm"
+              style={{
+                borderColor: "var(--border-secondary)",
+                color: "var(--text-primary)",
+                backgroundColor: "var(--bg-card)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "var(--accent-primary)";
+                e.currentTarget.style.color = "var(--accent-primary)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "var(--border-secondary)";
+                e.currentTarget.style.color = "var(--text-primary)";
+              }}
+            >
+              <Mountain size={20} />
+              Codeberg
             </motion.a>
           </motion.div>
         </div>

@@ -13,8 +13,8 @@ function Contact() {
     {
       icon: Phone,
       label: "Telefone",
-      value: "(62) 93504-7887",
-      href: "tel:+5562935047887",
+      value: "(62) 99504-7887",
+      href: "tel:+5562995047887",
     },
     {
       icon: Linkedin,
