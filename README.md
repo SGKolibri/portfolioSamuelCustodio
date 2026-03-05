@@ -29,14 +29,14 @@ This portfolio serves as a central point for anyone who wants to learn about my 
 ## Tech Stack
 
 | Layer          | Technologies                                                                          |
-| -------------- | ------------------------------------------------------------------------------------- | --- |
+| -------------- | ------------------------------------------------------------------------------------- |
 | Framework      | React 18, TypeScript                                                                  |
 | Build tool     | Vite                                                                                  |
 | Styling        | Tailwind CSS, CSS custom properties                                                   |
 | Animations     | Framer Motion, GSAP                                                                   |
 | 3D / WebGL     | Three.js, @react-three/fiber, @react-three/postprocessing                             |
 | UI components  | shadcn/ui, Lucide React                                                               |
-| Visual effects | React Bits (DecryptedText, GradientText, ShinyText, ScrollReveal, Dither, ColorBends) |     |
+| Visual effects | React Bits (DecryptedText, GradientText, ShinyText, ScrollReveal, Dither, ColorBends) |
 | Deployment     | Vercel                                                                                |
 
 ## License
