@@ -15,7 +15,10 @@ const gradientColors: Record<string, string[]> = {
 
 function Hero() {
   const { theme } = useTheme();
-  const gradColors = useMemo(() => gradientColors[theme] || gradientColors.dark, [theme]);
+  const gradColors = useMemo(
+    () => gradientColors[theme] || gradientColors.dark,
+    [theme],
+  );
 
   return (
     <section
@@ -30,7 +33,7 @@ function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-        <div className="text-center">
+        <div className="w-fit flex items-center text-center flex-col mx-auto">
           {/* Profile Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -54,7 +57,7 @@ function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-5xl md:text-7xl font-bold mb-6"
+            className="text-4xl md:text-7xl font-bold mb-6"
             style={{ color: "var(--text-primary)" }}
           >
             <DecryptedText
@@ -79,39 +82,42 @@ function Hero() {
             <GradientText
               colors={gradColors}
               animationSpeed={6}
-              className="text-2xl md:text-3xl font-semibold cursor-default"
+              className="text-xl md:text-3xl font-semibold cursor-default px-1 backdrop-blur-sm"
             >
-              Desenvolvedor Web Full Stack
+              &nbsp;Desenvolvedor Web Full Stack&nbsp;
             </GradientText>
           </motion.div>
-
-          {/* Description with ShinyText (React Bits) highlights */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-lg max-w-2xl mx-auto mb-12 leading-relaxed"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            Engenheiro de software com base sólida em {" "}
-            <ShinyText
-              text="Desenvolvimento Web Full Stack"
-              speed={3}
-              color="var(--text-primary)"
-              shineColor="var(--accent-primary)"
-              className="font-semibold"
-            />
-            <ShinyText
-              text="AWS Certified Cloud Practitioner"
-              speed={4}
-              delay={1.5}
-              color="var(--accent-primary)"
-              shineColor="var(--accent-secondary)"
-              className="font-semibold"
-            />{" "}
-            com experiência em arquitetura de software e CI/CD.
-          </motion.p>
-
+          
+          <div className="w-fit flex items-center  bg-[#00000030] px-1 mb-6 rounded-lg backdrop-blur-sm text-pretty">
+            {/* Description with ShinyText (React Bits) highlights */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="text-md md:text-lg max-w-2xl mx-auto my-2 leading-relaxed"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              Engenheiro de software com base sólida em{" "}
+              <ShinyText
+                text="Desenvolvimento Web Full Stack"
+                speed={3}
+                color="var(--text-primary)"
+                shineColor="var(--accent-primary)"
+                className="font-semibold"
+              />
+              .
+              <ShinyText
+                text="AWS Certified Cloud Practitioner"
+                speed={4}
+                delay={1.5}
+                color="var(--accent-primary)"
+                shineColor="var(--accent-secondary)"
+                className="font-semibold"
+              />{" "}
+              com experiência em arquitetura de software, otimização de
+              performance e CI/CD.
+            </motion.p>
+          </div>
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -133,8 +139,7 @@ function Hero() {
                   "var(--accent-primary-hover)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor =
-                  "var(--accent-primary)";
+                e.currentTarget.style.backgroundColor = "var(--accent-primary)";
               }}
             >
               Entre em Contato

@@ -73,7 +73,7 @@ function About() {
             </div>
           </AnimatedSection>
 
-          <AnimatedSection direction="right" delay={0.2}>
+          <AnimatedSection direction="left" delay={0.2}>
             <div
               className="p-8 rounded-2xl"
               style={{
