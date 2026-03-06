@@ -16,7 +16,7 @@ This portfolio serves as a central point for anyone who wants to learn about my 
 
 - **Animated WebGL background** — A dithered wave rendered with Three.js reacts to mouse position in real time, providing a dynamic visual layer behind all sections.
 
-- **Three color themes** — Light, Dark, and Catppuccin Mocha. The selected theme persists via React context and transitions smoothly across all CSS custom properties.
+- **Two color themes** — Main (dark) and Catppuccin Mocha. The selected theme persists via React context and transitions smoothly across all CSS custom properties.
 
 - **Scroll-driven animations** — Sections and text blocks animate into view using Framer Motion and a custom ScrollReveal component with configurable blur and rotation.
 
